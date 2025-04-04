@@ -3,9 +3,8 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/kavishkakalhara1/solback.git'
+                git branch: 'main', url: 'https://github.com/kavishkakalhara1/solback.git'
             }
         }
     }
 }
-// hell
