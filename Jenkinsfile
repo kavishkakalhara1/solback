@@ -115,8 +115,7 @@ pipeline {
             steps {
                 sshagent(['aws_ec2_ssh']) {
                     sh '''
-                        # First, copy the .env file to the EC2 instance
-                        scp -o StrictHostKeyChecking=no .env ubuntu@13.61.21.9 :/home/ubuntu/.env
+                        
 
                         # Now, pull the latest image and run the container
                         ssh -o StrictHostKeyChecking=no ubuntu@13.61.21.9  "
