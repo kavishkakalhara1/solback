@@ -122,7 +122,7 @@ pipeline {
                             sudo docker pull virajsamarasinghe/backend:latest && \
                             sudo docker stop backend || true && \
                             sudo docker rm -f backend || true && \
-                            sudo docker run -d --name backend -p 8080:8080 virajsamarasinghe/backend:latest"
+                            sudo docker run -d --name backend -p 3000:3000 virajsamarasinghe/backend:latest"
                     '''
                 }
             }

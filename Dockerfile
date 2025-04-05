@@ -13,7 +13,7 @@ RUN npm install --silent
 COPY . .
 
 # Expose the port
-EXPOSE 3001
+EXPOSE 3000
 
 # Start the application
 CMD ["npm", "run", "start"]
