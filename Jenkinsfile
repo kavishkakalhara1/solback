@@ -56,7 +56,7 @@ pipeline {
 
         stage('Clone Repository') {
             steps {
-                git branch: 'main', url: 'https://github.com/MalithaJeewaka/backend-devops.git'
+                git branch: 'main', url: 'https://github.com/kavishkakalhara1/solback.git'
             }
         }
 
