@@ -25,7 +25,7 @@ const __dirname = path.resolve();
 const app = express(); // Initialize the app here
 
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:5000', 'https://solveitsl.site', 'http://13.61.21.9'], // Replace with your frontend's URL
+  origin: ['http://localhost:5173', 'http://localhost:5000', 'https://solveitsl.site', 'https://13.61.21.9'], // Replace with your frontend's URL
   credentials: true, // Allow cookies to be sent
 }));
 
