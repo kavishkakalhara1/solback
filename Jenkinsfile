@@ -3,7 +3,7 @@
 //     stages {
 //         stage('Clone Repository') {
 //             steps {
-//                 git branch: 'main', url: 'https://github.com/kavishkakalhara1/solback.git'
+//                 git branch: 'main', url: 'https://github.com/virajsamarasinghe1/solback.git'
 //             }
 //         }
 //     }
@@ -56,7 +56,7 @@ pipeline {
 
         stage('Clone Repository') {
             steps {
-                git branch: 'main', url: 'https://github.com/kavishkakalhara1/solback.git'
+                git branch: 'main', url: 'https://github.com/virajsamarasinghe1/solback.git'
             }
         }
 
@@ -77,7 +77,7 @@ pipeline {
                 script {
                     echo 'Building Docker image...'
                     if (fileExists('Dockerfile')) {
-                        sh 'docker build --platform linux/amd64 -t kavishkakalhara/backend:latest .'  // Ensure image is built for linux/
+                        sh 'docker build --platform linux/amd64 -t virajsamarasinghe/backend:latest .'  // Ensure image is built for linux/
                     } else {
                         error "Dockerfile not found in the repository."
                     }
@@ -99,10 +99,10 @@ pipeline {
             steps {
                 script {
                     echo 'Pushing Docker image to Docker Hub...'
-                    def imageExists = sh(script: 'docker images -q kavishkakalhara/backend:latest', returnStdout: true).trim()
+                    def imageExists = sh(script: 'docker images -q virajsamarasinghe/backend:latest', returnStdout: true).trim()
                     if (imageExists) {
                         retry(3) {
-                            sh 'docker push kavishkakalhara/backend:latest'
+                            sh 'docker push virajsamarasinghe/backend:latest'
                         }
                     } else {
                         error "Docker image not found. Build step might have failed."
@@ -119,10 +119,10 @@ pipeline {
 
                         # Now, pull the latest image and run the container
                         ssh -o StrictHostKeyChecking=no ubuntu@13.61.21.9  "
-                            sudo docker pull kavishkakalhara/backend:latest && \
+                            sudo docker pull virajsamarasinghe/backend:latest && \
                             sudo docker stop backend || true && \
                             sudo docker rm -f backend || true && \
-                            sudo docker run -d --name backend -p 3000:3000 kavishkakalhara/backend:latest"
+                            sudo docker run -d --name backend -p 3000:3000 virajsamarasinghe/backend:latest"
                     '''
                 }
             }
